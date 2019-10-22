@@ -1,4 +1,4 @@
-package com.sparta.wla;
+package com.sparta.wla.model;
 
 import com.sparta.wla.exceptions.ChildNotFoundException;
 
@@ -6,6 +6,7 @@ import com.sparta.wla.exceptions.ChildNotFoundException;
  * Created by keith.dauris on 26/06/2017.
  */
 public interface BinaryTree {
+
     int getRootElement();
 
     int getNumberOfElements();
