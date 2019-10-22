@@ -2,8 +2,6 @@ package com.sparta.wla.model;
 
 import com.sparta.wla.exceptions.ChildNotFoundException;
 import com.sparta.wla.managers.TreeHelper;
-import java.util.Collections;
-
 
 public class BinaryTreeSearch implements BinaryTree {
 
