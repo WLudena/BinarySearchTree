@@ -17,8 +17,12 @@ public class Starter
         BinaryTree binaryTree = new BinaryTreeSearch();
         int[] testNumbers = {6,2,5,4,8,1};
         binaryTree.addElements(testNumbers);
-        System.out.println(Arrays.toString(binaryTree.getSortedTreeAsc()));
-        System.out.println(Arrays.toString(binaryTree.getSortedTreeDesc()));
+        binaryTree.addElement(10);
+        System.out.println(binaryTree.getNumberOfElements());
+        //System.out.println(Arrays.toString(binaryTree.getSortedTreeAsc())); //STILL TO FIX
+        System.out.println(binaryTree.findElement(19));
+        //System.out.println(Arrays.toString(binaryTree.getSortedTreeDesc())); //FIX GETSORTED TREE BEFORE RUNNING THIS
+
 
     }
 }

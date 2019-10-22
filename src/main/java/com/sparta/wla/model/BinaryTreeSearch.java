@@ -1,15 +1,14 @@
 package com.sparta.wla.model;
 
 import com.sparta.wla.exceptions.ChildNotFoundException;
+import com.sparta.wla.managers.TreeHelper;
+import java.util.Collections;
 
-import java.util.ArrayList;
 
 public class BinaryTreeSearch implements BinaryTree {
 
     private Node root;
-
-    public BinaryTreeSearch(){
-    }
+    private TreeHelper treeHelper = new TreeHelper();
 
     @Override
     public int getRootElement() {
@@ -17,60 +16,25 @@ public class BinaryTreeSearch implements BinaryTree {
     }
 
     @Override
-    public int getNumberOfElements() {
-        return initialArray.size();
+    public int getNumberOfElements(){
+        return treeHelper.nodeCount(root);
     }
 
     @Override
     public void addElement(int element) {
-        recursiveInsertion(root, element);
+        treeHelper.insertNode(root, element);
     }
 
     @Override
     public void addElements(int[] elements) {
         for(int i = 0; i < elements.length; i++){
-            root = recursiveInsertion(root, elements[i]);
+            root = treeHelper.insertNode(root,elements[i]);
         }
-        recursiveSaveInArrayAsc(arrayAsc,root);
-        recursiveSaveInArrayDesc(arrayDesc,root);
     }
-
-    public Node recursiveInsertion(Node root, int key){
-        if(root == null){
-            root = new Node(key);
-            return root;
-        }
-        if(key < root.key) {
-            root.left = recursiveInsertion(root.left, key);
-        }else{
-            root.right = recursiveInsertion(root.right, key);
-        }
-
-        return root;
-    }
-
-    public ArrayList<Integer> recursiveSaveInArrayAsc(ArrayList<Integer>arrayAsc, Node root){
-        if(root != null){
-            recursiveSaveInArrayAsc(arrayAsc, root.left);
-            this.arrayAsc.add(root.key);
-            recursiveSaveInArrayAsc(arrayAsc, root.right);
-        }
-        return this.arrayAsc;
-    }
-
-    public ArrayList<Integer> recursiveSaveInArrayDesc(ArrayList<Integer>arrayDesc, Node root){
-        if(root != null){
-            recursiveSaveInArrayAsc(arrayDesc, root.right);
-            this.arrayDesc.add(root.key);
-            recursiveSaveInArrayAsc(arrayDesc, root.left);
-        }
-        return this.arrayDesc;
-    }
-
 
     @Override
     public boolean findElement(int value) {
-        return false;
+        return treeHelper.findNode(root,value);
     }
 
     @Override
@@ -85,19 +49,12 @@ public class BinaryTreeSearch implements BinaryTree {
 
     @Override
     public int[] getSortedTreeAsc() {
-        int[] sortedArray = new int[arrayAsc.size()] ;
-        for(int i = 0; i < arrayAsc.size(); i++){
-            sortedArray[i] = arrayAsc.get(i);
-        }
-        return sortedArray;
+        int[] sortedTreeArray = new int[getNumberOfElements()];
+        return treeHelper.sortedTreeArray(root,sortedTreeArray, 0);
     }
 
     @Override
     public int[] getSortedTreeDesc() {
-        int[] sortedArray = new int[arrayDesc.size()] ;
-        for(int i = 0; i < arrayDesc.size(); i++){
-            sortedArray[i] = arrayDesc.get(i);
-        }
-        return sortedArray;
+        return treeHelper.reverseSortedTreeArray(getSortedTreeAsc());
     }
 }
