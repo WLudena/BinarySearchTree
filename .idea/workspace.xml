@@ -2,9 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f6cac9c-fd47-4612-879b-bdf8c4df115c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sparta/wla/BinaryTreeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sparta/wla/exceptions/ChildNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sparta/wla/exceptions/ChildNotFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sparta/wla/managers/Starter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sparta/wla/managers/Starter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sparta/wla/managers/TreeHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sparta/wla/managers/TreeHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sparta/wla/model/BinaryTreeSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sparta/wla/model/BinaryTreeSearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sparta/wla/model/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sparta/wla/model/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/sparta/wla/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sparta/wla/exceptions/ChildNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sparta/wla/exceptions/ChildNotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sparta/wla/managers/Starter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sparta/wla/managers/Starter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sparta/wla/managers/TreeHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sparta/wla/managers/TreeHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sparta/wla/model/BinaryTreeSearch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sparta/wla/model/BinaryTreeSearch.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sparta/wla/model/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sparta/wla/model/Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/sparta/wla/AppTest.class" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +42,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -49,23 +61,94 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="Starter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.sparta.wla.managers.Starter" />
+  <component name="RunManager" selected="JUnit.BinaryTreeTest.testThrowsChildNotFoundException">
+    <configuration name="BinaryTreeTest.getsRightChild" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BinarySearchTree" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.sparta.wla.managers.*" />
+          <option name="PATTERN" value="com.sparta.wla.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.sparta.wla" />
+      <option name="MAIN_CLASS_NAME" value="com.sparta.wla.BinaryTreeTest" />
+      <option name="METHOD_NAME" value="getsRightChild" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BinaryTreeTest.testFindElement" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BinarySearchTree" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sparta.wla.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sparta.wla" />
+      <option name="MAIN_CLASS_NAME" value="com.sparta.wla.BinaryTreeTest" />
+      <option name="METHOD_NAME" value="testFindElement" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BinaryTreeTest.testGetLeftChild" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BinarySearchTree" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sparta.wla.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sparta.wla" />
+      <option name="MAIN_CLASS_NAME" value="com.sparta.wla.BinaryTreeTest" />
+      <option name="METHOD_NAME" value="testGetLeftChild" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BinaryTreeTest.testGetsSortedTreeAsc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BinarySearchTree" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sparta.wla.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sparta.wla" />
+      <option name="MAIN_CLASS_NAME" value="com.sparta.wla.BinaryTreeTest" />
+      <option name="METHOD_NAME" value="testGetsSortedTreeAsc" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BinaryTreeTest.testThrowsChildNotFoundException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BinarySearchTree" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sparta.wla.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sparta.wla" />
+      <option name="MAIN_CLASS_NAME" value="com.sparta.wla.BinaryTreeTest" />
+      <option name="METHOD_NAME" value="testThrowsChildNotFoundException" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Starter" />
+        <item itemvalue="JUnit.BinaryTreeTest.testThrowsChildNotFoundException" />
+        <item itemvalue="JUnit.BinaryTreeTest.getsRightChild" />
+        <item itemvalue="JUnit.BinaryTreeTest.testGetsSortedTreeAsc" />
+        <item itemvalue="JUnit.BinaryTreeTest.testGetLeftChild" />
+        <item itemvalue="JUnit.BinaryTreeTest.testFindElement" />
       </list>
     </recent_temporary>
   </component>
@@ -94,5 +177,37 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/sparta/wla/model/BinaryTreeSearch.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/sparta/wla/model/BinaryTreeSearch.java</url>
+          <line>110</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/sparta/wla/model/BinaryTreeSearch.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/sparta/wla/model/BinaryTreeSearch.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/main/java/com/sparta/wla/model/BinaryTreeSearch.java</url>
+          <line>8</line>
+          <properties field="count" class="com.sparta.wla.model.BinaryTreeSearch" />
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

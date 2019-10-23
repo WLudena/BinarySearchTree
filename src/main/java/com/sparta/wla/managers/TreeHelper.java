@@ -10,8 +10,9 @@ import java.util.List;
 public final class TreeHelper {
 
     private static boolean flag;// Used to find element in tree
+    private static int count;
 
-    public final int nodeCount(Node root){
+    public static int nodeCount(Node root){
         int count = 1;
         if(root == null){
             return 0;
@@ -22,54 +23,26 @@ public final class TreeHelper {
         return count;
     }
 
-    public final Node insertNode(Node root, int key){
-        if(root == null){
-            return new Node(key);
-        }
-        if(key < root.getKey()) {
-            root.setLeft(insertNode(root.getLeft(),key));
-        }else{
-            root.setRight(insertNode(root.getRight(),key));
-        }
-        return root;
+    public static int[] reverseSortedTreeArray(int[] array){
+        ArrayList<Integer> temp = new ArrayList<>(arrayToArrayList(array));
+        Collections.reverse(temp);
+        return arrayListToArray(temp);
     }
 
-    public final int[] sortedTreeArray(Node node, int[] array, int index) {
-        if(node != null){
-            sortedTreeArray(node.getLeft(),array, index);
-            array[index++] = node.getKey();
-            sortedTreeArray(node.getRight(), array, index);
+    private static int[] arrayListToArray(List<Integer> arrayList){
+        int[]array = new int[arrayList.size()];
+        for(int i = 0; i < array.length; i++){
+            array[i] = arrayList.get(i);
         }
         return array;
     }
 
-    public final int[] reverseSortedTreeArray(int[] array){
-        List<Integer> elementList = new ArrayList<Integer>(); //Tried casting but did not work
+    private static List<Integer> arrayToArrayList(int[] array){
+        List<Integer> arrayList = new ArrayList<>();
         for(int i : array){
-            elementList.add(i);
+            arrayList.add(i);
         }
-        Collections.reverse(elementList);
-        int[] sortedList = new int[array.length];
-        for(int i = 0; i < sortedList.length; i++){
-            sortedList[i] = elementList.get(i);
-        }
-
-        return sortedList;
-    }
-
-    public final boolean findNode(Node node, int element){
-        if(node != null){
-            if(node.getKey() == element){
-                return flag = true;
-            }
-            if(!flag && node.getLeft() != null){
-                findNode(node.getLeft(),element);
-            }
-            if(!flag && node.getRight() != null){
-                findNode(node.getRight(),element);
-            }
-        }
-       return flag;
+        return arrayList;
     }
 
 }

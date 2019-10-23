@@ -7,6 +7,10 @@ public class Node {
     private final int key;
     private Node left, right;
 
+    public Node(int key) {
+        this.key = key;
+    }
+
     public Node getLeft() {
         return left;
     }
@@ -25,9 +29,5 @@ public class Node {
 
     public void setRight(Node right) {
         this.right = right;
-    }
-
-    public Node(int key){
-        this.key = key;
     }
 }

@@ -6,7 +6,12 @@ import com.sparta.wla.managers.TreeHelper;
 public class BinaryTreeSearch implements BinaryTree {
 
     private Node root;
-    private TreeHelper treeHelper = new TreeHelper();
+    private static int count;
+
+    public BinaryTreeSearch(int element){
+        root = new Node(element);
+    }
+
 
     @Override
     public int getRootElement() {
@@ -15,44 +20,103 @@ public class BinaryTreeSearch implements BinaryTree {
 
     @Override
     public int getNumberOfElements(){
-        return treeHelper.nodeCount(root);
+        return TreeHelper.nodeCount(root);
     }
 
     @Override
     public void addElement(int element) {
-        treeHelper.insertNode(root, element);
+        insertNode(root, element);
     }
 
     @Override
     public void addElements(int[] elements) {
         for(int i = 0; i < elements.length; i++){
-            root = treeHelper.insertNode(root,elements[i]);
+            insertNode(root,elements[i]);
         }
     }
 
     @Override
     public boolean findElement(int value) {
-        return treeHelper.findNode(root,value);
+        if(findNode(root,value).getKey() == value){
+            return true;
+        }
+        return false;
     }
 
     @Override
     public int getLeftChild(int element) throws ChildNotFoundException {
-        return 0;
+        try{
+            if(findNode(root,element).getKey() == element){
+                return findNode(root,element).getLeft().getKey(); // Check why it doesn't
+            }else{
+                return 0;
+            }
+        }catch (NullPointerException e){
+            throw new ChildNotFoundException("Child Not Found");
+        }
     }
 
     @Override
     public int getRightChild(int element) throws ChildNotFoundException {
-        return 0;
+        try{
+            if(findNode(root,element).getKey() == element){
+                return findNode(root,element).getRight().getKey(); // Check why it doesn't
+            }else{
+                return 0;
+            }
+        }catch (NullPointerException e){
+            throw new ChildNotFoundException("Child Not Found");
+        }
     }
 
     @Override
     public int[] getSortedTreeAsc() {
-        int[] sortedTreeArray = new int[getNumberOfElements()];
-        return treeHelper.sortedTreeArray(root,sortedTreeArray, 0);
+        int[] sortedTreeArray = new int[count];
+        return sortedTreeArrayHelper(root,sortedTreeArray);
     }
 
     @Override
     public int[] getSortedTreeDesc() {
-        return treeHelper.reverseSortedTreeArray(getSortedTreeAsc());
+
+        return TreeHelper.reverseSortedTreeArray(getSortedTreeAsc());
+    }
+
+    private Node findNode(Node node, int element){
+        if(node != null){
+            if(node.getKey() == element){
+                return node;
+            }
+        }
+
+        return element < node.getKey()
+        ? findNode(node.getLeft(), element)
+        : findNode(node.getRight(), element);
+    }
+
+    private Node insertNode(Node node, int key){
+        if(node == null){
+            return new Node(key);
+        }
+        if(key < node.getKey()) {
+            node.setLeft(insertNode(node.getLeft(),key));
+            count++;
+        }else{
+            node.setRight(insertNode(node.getRight(),key));
+            count++;
+        }
+        return node;
+    }
+
+    private int[] sortedTreeArrayHelper(Node node, int[] array){
+        if(node == null){
+            return array;
+        }
+        if( count < array.length){
+            sortedTreeArrayHelper(node.getLeft(), array);
+            array[count] = node.getKey();
+            count++;
+            sortedTreeArrayHelper(node.getRight(),array);
+        }
+        return array;
     }
 }
