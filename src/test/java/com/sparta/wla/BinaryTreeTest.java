@@ -3,10 +3,7 @@ package com.sparta.wla;
 import com.sparta.wla.exceptions.ChildNotFoundException;
 import com.sparta.wla.model.BinaryTree;
 import com.sparta.wla.model.BinaryTreeSearch;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.*;
 
 import java.util.Arrays;
 
@@ -17,7 +14,7 @@ import static org.junit.Assert.*;
  */
 public class BinaryTreeTest
 {
-    private BinaryTree binaryTree;
+    private  BinaryTree binaryTree;
 
     @Before
     public void setUp(){
@@ -27,8 +24,9 @@ public class BinaryTreeTest
 
     @After
     public void tearDown(){
-
+        binaryTree = null;
     }
+
 
     @Test
     public void testContainsRootElement(){
@@ -64,10 +62,9 @@ public class BinaryTreeTest
         assertTrue(found);
     }
 
-    @Test
+    @Test(expected = NullPointerException.class)
     public void testNotFoundElement(){
         boolean notFound = binaryTree.findElement(112);
-        assertFalse(notFound);
     }
 
     @Test
@@ -98,14 +95,17 @@ public class BinaryTreeTest
     @Test
     public void testGetsSortedTreeAsc(){
         int[] sortedArray = binaryTree.getSortedTreeAsc();
-        System.out.printf(Arrays.toString(sortedArray));
+
         assertArrayEquals(sortedArray, new int[]{3,4,5,7,12,23,31,56,67});
     }
 
     @Test
     public void testGetsSortedTreeDesc(){
         int[] sortedArray = binaryTree.getSortedTreeDesc();
-        assertArrayEquals(sortedArray,new int[] {8,7,5,3});
+
+        System.out.println(Arrays.toString(sortedArray));
+
+        assertArrayEquals(sortedArray,new int[] {67,56,31,23,12,7,5,4,3});
     }
 
 }

@@ -1,15 +1,16 @@
 package com.sparta.wla.model;
 
 import com.sparta.wla.exceptions.ChildNotFoundException;
-import com.sparta.wla.managers.TreeHelper;
 
 public class BinaryTreeSearch implements BinaryTree {
 
     private Node root;
-    private static int count;
+    private static int nodeCount = 0;
+    private static int indexCount = 0;
 
     public BinaryTreeSearch(int element){
         root = new Node(element);
+        nodeCount++;
     }
 
 
@@ -20,18 +21,20 @@ public class BinaryTreeSearch implements BinaryTree {
 
     @Override
     public int getNumberOfElements(){
-        return TreeHelper.nodeCount(root);
+        return nodeCount;
     }
 
     @Override
     public void addElement(int element) {
         insertNode(root, element);
+        nodeCount++;
     }
 
     @Override
     public void addElements(int[] elements) {
         for(int i = 0; i < elements.length; i++){
             insertNode(root,elements[i]);
+            nodeCount++;
         }
     }
 
@@ -71,14 +74,22 @@ public class BinaryTreeSearch implements BinaryTree {
 
     @Override
     public int[] getSortedTreeAsc() {
-        int[] sortedTreeArray = new int[count];
+        int[] sortedTreeArray = new int[nodeCount];
         return sortedTreeArrayHelper(root,sortedTreeArray);
     }
 
     @Override
     public int[] getSortedTreeDesc() {
 
-        return TreeHelper.reverseSortedTreeArray(getSortedTreeAsc());
+        int[] descSortedArray = new int[nodeCount];
+        int j = nodeCount - 1;
+        int[] ascSortedArray = getSortedTreeAsc();
+
+        for(int i = 0; i < ascSortedArray.length; i++){
+            descSortedArray[i] = ascSortedArray[j];
+            j--;
+        }
+        return descSortedArray;
     }
 
     private Node findNode(Node node, int element){
@@ -99,24 +110,20 @@ public class BinaryTreeSearch implements BinaryTree {
         }
         if(key < node.getKey()) {
             node.setLeft(insertNode(node.getLeft(),key));
-            count++;
         }else{
             node.setRight(insertNode(node.getRight(),key));
-            count++;
         }
         return node;
     }
 
     private int[] sortedTreeArrayHelper(Node node, int[] array){
-        if(node == null){
-            return array;
-        }
-        if( count < array.length){
-            sortedTreeArrayHelper(node.getLeft(), array);
-            array[count] = node.getKey();
-            count++;
-            sortedTreeArrayHelper(node.getRight(),array);
+        if(node != null){
+           sortedTreeArrayHelper(node.getLeft(), array);
+           array[indexCount] = node.getKey();
+           indexCount++;
+           sortedTreeArrayHelper(node.getRight(), array);
         }
         return array;
     }
+
 }
